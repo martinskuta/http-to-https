@@ -1,0 +1,7 @@
+﻿services:
+  http-to-https:
+    image: http-to-https
+    build:
+      context: .
+      dockerfile: http-to-https/Dockerfile
+
