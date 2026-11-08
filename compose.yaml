@@ -4,4 +4,8 @@
     build:
       context: .
       dockerfile: http-to-https/Dockerfile
+    environment:
+      PORT: ${PORT:-8080}
+    ports:
+      - "${PORT:-8080}:${PORT:-8080}"
 

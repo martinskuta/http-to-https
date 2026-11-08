@@ -6,11 +6,13 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Features;
 
-var appHook = (WebApplication app) => app.Run(RedirectToHttpsAsync);
+var port = ushort.Parse(Environment.GetEnvironmentVariable("PORT") ?? "8080");
 
-await Host.Create(appHook: appHook)
+await Host.Create(appHook: app => app.Run(RedirectToHttpsAsync))
     .Handler(new NotFoundHandler())
+    .Port(port)
     .RunAsync();
+return;
 
 static Task RedirectToHttpsAsync(HttpContext context)
 {

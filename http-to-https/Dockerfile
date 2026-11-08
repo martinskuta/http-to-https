@@ -21,7 +21,8 @@ FROM mcr.microsoft.com/dotnet/aspnet:11.0-alpine
 ENV DOTNET_EnableDiagnostics=0 \
     DOTNET_gcServer=1 \
     DOTNET_TieredPGO=1 \
-    DOTNET_ReadyToRun=1
+    DOTNET_ReadyToRun=1 \
+    PORT=8080
 
 WORKDIR /app
 
